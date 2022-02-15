@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  nginx-proxy:
+    image: nginx:latest
+    volumes:
+      - ./nginx/reverse_proxy.conf:/etc/nginx/conf.d/reverse_proxy.conf
+      - ./public:/usr/share/nginx/html
+    ports:
+      - '80:80'
+
+networks:
+  default:
+    name: kt-home-network
